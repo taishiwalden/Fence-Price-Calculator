@@ -1,0 +1,94 @@
+<!--Fence Pricing Calculator-->
+
+<!DOCTYPE html> 
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<style  type="text/css">
+        body{background-color:saddlebrown ; color : orange; 
+              font-family : helvetica; text-align : center}}
+        h1{color:white}
+        hr      {width: 15%; color: darkorange}
+        p      {color : white;}
+        section {margin-left : auto; margin-right : auto; text-align : center;}
+        table{border:#faf5cc}
+
+</style>
+    
+  <head>
+	<meta http-equiv="Content_Type" content="text/html; charset=utf-8"/>
+	
+	<title> Fence Price Calculator </title>
+  </head>
+    
+  <body>
+      <script>
+        //initiate variable here  
+        var some_variable = "initial string information";
+        var some_other_variable = 56;
+		var length=0;
+		var width=0;
+		var gates=0;
+		var total=0;
+		var fence_type="Chainlink";
+        var price=0;
+
+		function fence_function()
+		{
+            length = document.fen2.len.value;
+            width = document.fen3.wid.value;
+			var perimeter = 2*length+2*width;
+			if(fence_type == "Wooden")
+			{
+				price = 35*perimeter;
+			}
+			if(fence_type == "Chainlink")
+			{
+				price = 25*perimeter;
+			}
+			price = 165*gates+price;   //additional cost per gate added 
+			price = price*.09+price;   //9 percent tax rate
+            disp.value = price;
+		}
+
+      </script>
+      <center><h1>Fence Price Calculator</h1></center>
+      <hr/>
+      <p><b>Fence Pricing Calculator<br /> 
+        Made by: Taishi </b></p> 
+
+     <center> <table border="1" color= #CDB380>     <!--create the table and add values-->
+          <tr>
+              <td><i style="color:#f1d28d">Length</i></td>
+              <td><i style="color:#f1d28d">Fences</i></td>
+              <td><i style="color:#f1d28d">Gates</i></td>
+          </tr>
+          <tr>
+              <td><form name="fen2">
+                  <input type="text" size ="5" name="len">
+              </form></td>
+              <td><button form = "fen" onclick= 'fence_type = "Chainlink"' > Chainlink </button></td>
+              <td><button form = "fen" onclick= 'gates = 1' > 1 </button></td>
+              <td><button form = "fen" onclick= 'some_variable = "initial string information"; 
+                          some_other_variable = 56; disp.value = "0.00"' > Clear </button></td>
+          </tr>
+          <tr>
+              <td><i style="color:#f1d28d">Width</i></td>
+              <td><button form = "fen" onclick= 'fence_type = "Wooden"' > Wooden </button></td>
+              <td><button form = "fen" onclick= 'gates = 2' > 2 </button></td>
+              <td><button onclick="fence_function();">Total</button></td>
+          </tr>
+          <tr>
+              <td><form name="fen3">
+                  <input type="text" size ="5" name="wid">
+              </form></td>
+              <td></td>
+              <td><button form = "fen" onclick= 'gates = 3' > 3 </button></td>
+              <td><form name="fen">
+                  <input type="text" id="disp" value="0.00" size="5" onchange=' '/>
+              </form></td>
+          </tr>
+      </table> </center>
+         
+  </body>
+    
+</html>
